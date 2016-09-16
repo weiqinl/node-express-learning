@@ -50,6 +50,18 @@ app.get('/example/d', [cb0, cb1], function(req, res, next) {
 	res.send('Hello from D!');
 });
 
+app.route('/book')
+	.get(function(req, res) {
+		res.send('Get a random book');
+	})
+	.post(function(req, res) {
+		res.send('Add a book');
+	})
+	.put(function(req, res) {
+		res.send('Update the book');
+	});
+
+
 var server = app.listen(3000, function() {
   var host = server.address().address;
   var port = server.address().port;
