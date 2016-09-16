@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 //加载自定义的路由句柄
 var birds = require('./birds');
+var rt = require('./router');
 
+app.use('/rt', rt);
 app.use('/birds', birds);
 // 对网站首页的访问返回 "Hello World!" 字样
 app.get('/', function (req, res) {
