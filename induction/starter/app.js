@@ -43,6 +43,12 @@ var cb2 = function(req, res, next) {
 	res.send('Hello from c!');
 };
 app.get('/example/c', [cb0, cb1, cb2]);
+app.get('/example/d', [cb0, cb1], function(req, res, next) {
+	console.log('response will be sent by the next function ...');
+	next();
+}, function(req, res) {
+	res.send('Hello from D!');
+});
 
 var server = app.listen(3000, function() {
   var host = server.address().address;
