@@ -20,11 +20,17 @@ router.use('/user/:id', function(req, res, next){
 
 
 // 一个中间件栈，处理指向 /user/:id 的 GET 请求
-router.get('/user/:id', function(req, res, next){
-	if (req.params.id === 0) next('route');
-	else next();
+router.get('/user/:id', function(req, res, next){ 
+	//如果 user id 为 0， 跳到一下个路由
+	if (req.params.id == 0) { 
+		next('route'); 
+	} //负责将控制权交给栈中下一个中间件
+	else  {
+		next();
+	}
 }, function(req, res, next) {
-	// res.render('');
+	//渲染常规页面
+	// res.render('regular');
 	res.send('what are render?');
 });
 
@@ -33,7 +39,7 @@ router.get('/user/:id', function(req, res, next){
 router.get('/user/:id', function(req, res, next) {
 	console.log(req.params.id);
 	// res.render('special');
-	res.send('what wht what ?');
+	res.send('what what what ?');
 });
 // 将路由挂载至应用
 app.use('/', router);
