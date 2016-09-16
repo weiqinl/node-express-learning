@@ -24,8 +24,10 @@ app.delete('/user', function (req, res) {
 // app.all()是一个特殊的路由方法，它的作用是对于一个路径上的所有请求加载中间件
 app.all('/secret', function(req, res, next) {
   console.log('Accessing the secret section ... ');
-  //next(); //pass control to the next handler
-  res.send('This is secret ');
+next(); //pass control to the next handler
+
+}, function(req, res) {
+  res.send('Hello from next()');
 });
 
 var server = app.listen(3000, function() {
