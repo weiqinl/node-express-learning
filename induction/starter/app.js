@@ -66,6 +66,11 @@ app.route('/book')
 		res.send('Update the book');
 	});
 
+//错误处理中间件，必须使用4个参数
+app.use(function(err, req, res, next){
+	console.error(err.stack);
+	res.status(500).send('Something broke!');
+});
 
 var server = app.listen(3000, function() {
   var host = server.address().address;
