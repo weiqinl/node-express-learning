@@ -1,0 +1,23 @@
+{
+  "name": "starter",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/weiqinl/node-express-learning.git"
+  },
+  "keywords": [
+    "node.js",
+    "express"
+  ],
+  "author": "weiqinl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weiqinl/node-express-learning/issues"
+  },
+  "homepage": "https://github.com/weiqinl/node-express-learning#readme"
+}
