@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/weiqinl/node-express-learning/issues"
   },
-  "homepage": "https://github.com/weiqinl/node-express-learning#readme"
+  "homepage": "https://github.com/weiqinl/node-express-learning#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
