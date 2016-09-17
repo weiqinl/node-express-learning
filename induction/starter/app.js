@@ -78,6 +78,29 @@ app.use(function(err, req, res, next){
 	res.status(500).send('Something broke!');
 });
 
+//logErrors 将请求和错误信息写入标准错误输出、日志或类似服务：
+function logErrors(err, req, res, next) {
+	console.error(err.stack);
+	next(err);
+}
+//clientErrorHandler 的定义如下（注意这里将错误直接传给了 next）：
+function clientErrorHandler(err, req, res, next) {
+	if (req.xhr) {
+		res.status(500).send({error: 'Something blew up!' });
+	} else {
+		next(err);
+	}
+}
+//errorHandler 能捕获所有错误，其定义如下：
+function errorHandler(err, req, res, next) {
+	res.status(500);
+	res.render('error', {error: err});
+}
+app.use(logErrors);
+app.use(clientErrorHandler);
+app.use(errorHandler);
+
+
 var server = app.listen(3000, function() {
   var host = server.address().address;
   var port = server.address().port;
