@@ -6,6 +6,12 @@ var rt = require('./router');
 
 app.use('/rt', rt);
 app.use('/birds', birds);
+
+//views，放模板文件的目录
+app.set('views', './views');
+//view engine，模板引擎
+app.set('view engine', 'pug');
+
 // 对网站首页的访问返回 "Hello World!" 字样
 app.get('/', function (req, res) {
   res.send('Hello World!');

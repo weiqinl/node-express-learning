@@ -31,7 +31,8 @@ router.get('/user/:id', function(req, res, next){
 }, function(req, res, next) {
 	//渲染常规页面
 	// res.render('regular');
-	res.send('what are render?');
+	// res.send('what are render?');
+	res.render('index.jade');
 });
 
 
