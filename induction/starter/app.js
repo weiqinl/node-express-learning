@@ -112,4 +112,8 @@ var server = app.listen(3000, function() {
 
   console.log('Example app listening at http://localhost:%s', port);
 });
-
+//调试 Express
+// > set DEBUG=express:* & node index.js
+// > DEBUG=express:* node ./bin/www
+///设置 DEBUG 的值为 express:router，只查看路由部分的日志；
+///设置 DEBUG 的值为 express:application，只查看应用部分的日志
