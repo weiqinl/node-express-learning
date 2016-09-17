@@ -32,7 +32,7 @@ router.get('/user/:id', function(req, res, next){
 	//渲染常规页面
 	// res.render('regular');
 	// res.send('what are render?');
-	res.render('index.jade');
+	res.render('index', {title: req.params.id});
 });
 
 
@@ -40,7 +40,7 @@ router.get('/user/:id', function(req, res, next){
 router.get('/user/:id', function(req, res, next) {
 	console.log(req.params.id);
 	// res.render('special');
-	res.send('what what what ?');
+	// res.send('what what what ?');
 });
 // 将路由挂载至应用
 app.use('/', router);
