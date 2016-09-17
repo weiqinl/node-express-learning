@@ -93,6 +93,11 @@ function clientErrorHandler(err, req, res, next) {
 }
 //errorHandler 能捕获所有错误，其定义如下：
 function errorHandler(err, req, res, next) {
+	//当你添加了一个自定义的错误处理句柄后，如果已经向客户端发送包头信息了，
+	//你还可以将错误处理交给 Express 内置的错误处理机制。
+	if (res.headerSent) {
+		return next(err);
+	}
 	res.status(500);
 	res.render('error', {error: err});
 }
